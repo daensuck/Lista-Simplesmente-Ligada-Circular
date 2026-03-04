@@ -51,5 +51,65 @@ class CircularLinkedList:
             for i in range(0,self.count-2):
                 aux = aux.next
 
-            
+            aux.next = aux.next.next
+            self.final = aux
+
+        self.count -= 1
+
+    def Get(self,i):
+        if(self.isEmpty()):
+            raise Exception("lista vazia")
+        
+        if (i > self.count):
+            raise Exception ('posição invalida')
+        
+        if (i == self.count):
+            return self.final.item
+        else:
+            aux = self.final.next
+            pos = 1
+            while (pos < i):
+                aux = aux.next
+                pos = pos + 1
+            return aux.item
+        
+    def Set(self,i, newItem):
+        if self.isEmpty():
+            raise Exception("Lista vazia")
+    
+        if i > self.count:
+            raise Exception("Posição inválida")
+
+        if i == self.count:
+            self.AddLast(newItem)
+
+        else:
+            aux = self.final.next
+            pos = 1
+
+            while 
+
+
+    def Display(self):
+        
+        aux = self.final.next
+        for i in range (self.count):
+            print(aux.item, end=' ')
+            aux = aux.next
+        print('\n')
+
+def main():
+        L1 = CircularLinkedList()
+
+        num = int(input('Informe a quantidade incial  de elementos para a fila 1:'))
+        print('Informe os elementos')
+
+        for i in range (num):
+            L1.AddFirst(int(input()))
+
+        L1.Display()
+        print("Elemento na pos.1:", L1.Get(3))
+
+main()
+
         
