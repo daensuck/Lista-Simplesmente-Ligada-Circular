@@ -56,6 +56,30 @@ class CircularLinkedList:
 
         self.count -= 1
 
+    def Remove(self,item):
+        if self.isEmpty():
+            raise Exception("Lista Vazia")
+        
+        aux = self.final.next
+        anterior = self.final
+        while (aux != self.final and aux.item != item):
+            anterior = aux
+            aux = aux.next
+
+        if (aux.item != item):
+            return False
+        
+        if (aux == aux.next):
+            self.final = None
+
+        else:
+            anterior.next = aux.next
+            if aux == self.final:
+                self.final = anterior 
+        
+        self.count -= 1
+        return True
+
     def Get(self,i):
         if(self.isEmpty()):
             raise Exception("lista vazia")
@@ -81,13 +105,17 @@ class CircularLinkedList:
             raise Exception("Posição inválida")
 
         if i == self.count:
-            self.AddLast(newItem)
+            self.final.item = newItem
 
         else:
             aux = self.final.next
             pos = 1
 
-            while 
+            while pos < i:
+                aux = aux.next
+                pos += 1
+
+            aux.item = newItem
 
 
     def Display(self):

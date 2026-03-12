@@ -8,9 +8,9 @@ with open('texto.txt', 'r', encoding='utf-8') as f:
     texto = f.read()
 
 # Separa em lista de linhas
-linhas = texto.strip().split(' ')
+linhas = texto.strip().split('/n')
 
-# Abre o WhatsApp Web antes de rodar o script
+# Abre o WhatsApp Web antes de rodarO term o script
 # Deixe o cursor no campo de mensagem!
 time.sleep(3)  # tempo para você clicar no campo
 
